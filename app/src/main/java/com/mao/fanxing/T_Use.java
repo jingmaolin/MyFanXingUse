@@ -1,4 +1,4 @@
-package com.mao;
+package com.mao.fanxing;
 
 import android.util.Log;
 
@@ -14,8 +14,16 @@ import android.util.Log;
 
 public class T_Use<T> {
     private static final String TAG = "T_Use";
+    private T value;
 
-    public void sum(T name) {
-        Log.d(TAG, "sum: " + name);
+    public void sum(T value) {
+        this.value=value;
+        Log.d(TAG, "sum: " + this.value);
     }
+
+    public T getValue() {
+        return value;
+    }
+
+
 }
