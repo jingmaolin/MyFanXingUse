@@ -1,5 +1,7 @@
 package com.mao;
 
+import android.support.annotation.NonNull;
+
 /**
  * Description ：
  * Created by jingmaolin on 2018/4/25.
@@ -10,7 +12,7 @@ package com.mao;
  * Leader：wangyue
  */
 
-public class TestBean {
+public class TestBean implements Comparable<TestBean> {
     private int age;
     private String name;
     private String factory;
@@ -47,5 +49,14 @@ public class TestBean {
 
     public void setFactory(String factory) {
         this.factory = factory;
+    }
+
+
+    @Override
+    public int compareTo(@NonNull TestBean bean) {
+        if (this.age >= bean.getAge()) {
+            return 1;
+        }
+        return -1;
     }
 }

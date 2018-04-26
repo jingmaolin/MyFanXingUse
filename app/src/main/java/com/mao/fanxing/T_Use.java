@@ -3,7 +3,7 @@ package com.mao.fanxing;
 import android.util.Log;
 
 /**
- * Description ：
+ * Description ：泛型类
  * Created by jingmaolin on 2018/4/25.
  * Job number：600029
  * Phone ：13342446520
@@ -24,6 +24,4 @@ public class T_Use<T> {
     public T getValue() {
         return value;
     }
-
-
 }
