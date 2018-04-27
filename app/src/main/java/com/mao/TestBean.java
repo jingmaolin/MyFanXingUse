@@ -12,7 +12,7 @@ import android.support.annotation.NonNull;
  * Leader：wangyue
  */
 
-public class TestBean implements Comparable<TestBean> {
+public class TestBean extends FatherBean<TestBean> {
     private int age;
     private String name;
     private String factory;

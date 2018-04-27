@@ -2,6 +2,8 @@ package com.mao.fanxing;
 
 import android.util.Pair;
 
+import com.mao.TestBean;
+
 /**
  * Description: 泛型方法
  * author:jingmaolin
@@ -15,7 +17,7 @@ public class T_Use_Ano {
     /**
      * 输出最大与最小值
      */
-    public <T extends Comparable> Pair<T, T> getMinAndMax(T[] value) {
+    public <T extends TestBean & Comparable<TestBean>> Pair<T, T> getMinAndMax(T[] value) {
         T min = value[0];
         T max = value[0];
         for (T v : value) {
@@ -24,5 +26,4 @@ public class T_Use_Ano {
         }
         return new Pair<>(max, min);
     }
-
 }

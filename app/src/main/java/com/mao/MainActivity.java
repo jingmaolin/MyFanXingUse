@@ -7,6 +7,7 @@ import android.util.Pair;
 
 import com.mao.fanxing.T_Use;
 import com.mao.fanxing.T_Use_Ano;
+import com.mao.fanxing.T_Use_Three;
 
 /**
  * 泛型的使用
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        t_use_ano();
+        t_use_three();
     }
 
     /**
@@ -48,5 +49,14 @@ public class MainActivity extends AppCompatActivity {
                 new TestBean(22, "小光", "希望中学")};
         Pair<TestBean, TestBean> pair = new T_Use_Ano().<TestBean>getMinAndMax(testBeans);
         Log.d(TAG, "t_use_ano: " + "max=" + pair.first.getName() + ";" + "min=" + pair.second.getName());
+    }
+
+    /**
+     * T_Use_Three
+     */
+    private void t_use_three() {
+        T_Use_Three t_use_three = new T_Use_Three(new TestBean(), new TestBean());
+        Pair<TestBean, TestBean> pair = t_use_three;    //类型擦除地方
+        pair.equals(new T_Use_Three(new TestBean(), new TestBean()));//断点跟踪调用的方法
     }
 }
