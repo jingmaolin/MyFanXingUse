@@ -21,6 +21,10 @@ Object类型引用不能指向其他类型的泛型类型对象 List<Object> obj
 
 泛型与多态之间的冲突，可通过桥方法来进行解决。
 
+通配符的使用
+ TreeSet(Comparator<? super E> comparator)   其中?存放父类，E为子类       网址： https://www.cnblogs.com/zhenyu-go/p/5536667.html
+
+
 遗留代码注意事项  方法之前增加@SuppressWarnings("unchecked")将关闭对方法中所有代码的检查
 
 泛型须知：
