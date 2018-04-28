@@ -5,7 +5,21 @@
 类型变量限定：extends   一个类型变量或通配符可以有多个限定 如 T extends MyBean & Comparable   (使用 & 隔开，限定中最多只能有一个类，且放在第一的位置，其他为接口)
                 多个类型变量之间使用逗号隔开
 
-类型擦除：原始类型使用第一个限定的类型变量进行替换，没有给定限定则用Object替换。泛型与多态之间的冲突，可通过桥方法来进行解决。
+类型擦除：
+java中的泛型基本上都是在编译器这个层次来实现的。在生成的Java字节代码中是不包含泛型中的类型信息的。使用泛型的时候加上的类型参数，会被编译器在编译的时候去掉，这个过程就称为类型擦除。
+举例：
+List<String>、List<T> 擦除后的类型为 List
+List<String>[]、List<T>[] 擦除后的类型为 List[]
+List<? extends E>、List<? super E> 擦除后的类型为 List<E>
+List<T extends Serialzable & Cloneable> 擦除后类型为 List<Serializable>
+
+引入泛型之前
+Object引用可以指向其子类的对象 Object object = new String();    //  ok
+引入泛型后
+Object类型引用不能指向其他类型的泛型类型对象 List<Object> object = new ArrayList<String>;
+原因： 前者可以通过instance of 判断类型；后者擦除后都为List,无法进行判断，故操作时会由于类型不一致出现问题。
+
+泛型与多态之间的冲突，可通过桥方法来进行解决。
 
 遗留代码注意事项  方法之前增加@SuppressWarnings("unchecked")将关闭对方法中所有代码的检查
 

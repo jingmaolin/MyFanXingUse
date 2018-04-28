@@ -9,6 +9,9 @@ import com.mao.fanxing.T_Use;
 import com.mao.fanxing.T_Use_Ano;
 import com.mao.fanxing.T_Use_Three;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 泛型的使用
  */
@@ -56,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void t_use_three() {
         T_Use_Three t_use_three = new T_Use_Three(new TestBean(), new TestBean());
-        Pair<TestBean, TestBean> pair = t_use_three;    //类型擦除地方
+        Pair<TestBean, TestBean> pair = t_use_three;
+        //类型擦除地方，类型擦除后，Pair<TestBean, TestBean> 变成了Pair,在最终的编译器中使用的类型为object，故下面方法调用时仍旧调用的是object参数的方法
         pair.equals(new T_Use_Three(new TestBean(), new TestBean()));//断点跟踪调用的方法
     }
 }
